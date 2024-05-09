@@ -46,6 +46,8 @@ class PtwCons(AUCCons):
 
     # ---------- Private methods ----------
 
+    # commented out print statements that would make the notebook too long
+
     def monitor_fun(self, X, y, z, data_type, header=False):
         if header:
             s = "dt | {1:^{0}} | {2:^{0}} | {3:^{0}} | {4:^{0}} | {5:^{0}}"
@@ -57,7 +59,7 @@ class PtwCons(AUCCons):
                                    "mean_c", "var_c",
                                    "dFPR_m", "dFPR_v",
                                    "dTPR_m", "dTPR_v")
-            print(base_s + summaries_s)
+            # print(base_s + summaries_s)
 
         if data_type == "test":
             X, y, z = gen_batch(X, y, z)
@@ -109,7 +111,7 @@ class PtwCons(AUCCons):
         s_eval = " | ".join(["{0:+.{1}f}".format(a, DEF_PREC)
                              for a in final_eval])
 
-        print("{0:^2} | {1}".format(data_type[:2], s_eval))
+        # print("{0:^2} | {1}".format(data_type[:2], s_eval))
 
         if EXPLICIT_C_AND_RATES and data_type == "test":
             c_string = " | ".join(["{0:+.{1}f}".format(a, DEF_PREC)
@@ -120,10 +122,10 @@ class PtwCons(AUCCons):
                                      for a in fprs])
             tpr_string = " | ".join(["{0:+.{1}f}".format(a, DEF_PREC)
                                      for a in tprs])
-            print("c: {}".format(c_string))
-            print("biases: {}".format(biases_string))
-            print("FPRs: {}".format(fpr_string))
-            print("TPRs: {}".format(tpr_string))
+            # print("c: {}".format(c_string))
+            # print("biases: {}".format(biases_string))
+            # print("FPRs: {}".format(fpr_string))
+            # print("TPRs: {}".format(tpr_string))
 
         return fprs, tprs
 

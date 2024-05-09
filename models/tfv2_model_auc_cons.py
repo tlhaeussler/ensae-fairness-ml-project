@@ -14,7 +14,7 @@ DEF_ADAPT_STEP = 0.01
 DEF_LR = 0.001
 DEF_MOMENTUM = 0.9
 DEF_N_BATCH = 1000
-DEF_DISPLAY_STEP = 500
+DEF_DISPLAY_STEP = 10000
 DEF_C = 0.
 DEF_PREC = 5
 DEF_VAR_INIT = 0.01
@@ -299,8 +299,10 @@ class AUCCons(GeneralModel):
         if header:
             s = ("dt | {1:^{0}} | {2:^{0}} | {3:^{0}} | {4:^{0}} "
                  + "| {5:^{0}} | {6:^{0}} | {7:^{0}} | {8:^{0}}")
-            print(s.format(DEF_PREC+3, "r_cost", "cost", "auc", "r_auc",
-                           "f_auc", "r_f_auc", "l2", "c"))
+    # Commented out the print statements from down below which took too much space in the notebook when looking at it on Github        
+
+    #        print(s.format(DEF_PREC+3, "r_cost", "cost", "auc", "r_auc",
+    #                       "f_auc", "r_f_auc", "l2", "c"))
 
         if data_type == "test":
             X, y, z = gen_batch(X, y, z)
@@ -328,8 +330,10 @@ class AUCCons(GeneralModel):
         eval_test = self.sess.run(monitored, feed_dict=feed_dict)
         s_eval = " | ".join(["{0:+.{1}f}".format(a, DEF_PREC)
                              for a in (eval_test + [self.c])])
-        print("{0:^2} | {1}".format(
-            data_type[:2], s_eval))
+    # Commented out as well
+
+    #    print("{0:^2} | {1}".format(
+    #        data_type[:2], s_eval))
 
         return eval_test[4]
 
