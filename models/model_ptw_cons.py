@@ -16,8 +16,12 @@ DEF_ADAPT_STEP_T = 0.01
 
 class PtwCons(AUCCons):
 
-    def __init__(self, param_files=None):
-        self.mon_pts = DEF_MON_PTS
+    # modified the constructor in the beginning a little so that I could hand over the monitoring points directly
+
+    def __init__(self, param_files=None, mon_pts=None):
+        if mon_pts is None:
+            mon_pts = DEF_MON_PTS
+        self.mon_pts = mon_pts
         self.adapt_step_t = DEF_ADAPT_STEP_T
 
         super().__init__(param_files=param_files)
