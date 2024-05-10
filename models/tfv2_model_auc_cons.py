@@ -9,7 +9,7 @@ import tensorflow as tf
 from models.general_model import GeneralModel
 from sklearn.model_selection import train_test_split
 
-DEF_N_ITER = 150000
+DEF_N_ITER = 50000
 DEF_ADAPT_STEP = 0.01
 DEF_LR = 0.001
 DEF_MOMENTUM = 0.9
